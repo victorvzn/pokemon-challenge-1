@@ -1,3 +1,5 @@
+import store from '@/store'
+
 const routes = [
   {
     path: '/',
@@ -14,7 +16,7 @@ const routes = [
     name: 'pokemon-list-all',
     component: () => import(/* webpackChunkName: "pokemon-list-all" */ '../views/PokemonListAll.vue'),
     beforeEnter (to, from, next) {
-      // TODO: I show the loading page while I fetch all pokemon and persist them using vuex
+      store.dispatch('pokemons/getPokemons')
       next()
     }
   },
