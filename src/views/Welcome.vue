@@ -4,13 +4,26 @@
       <img src="../assets/pikachu.svg" alt="Pikachu" />
       <h1 class="text-gray-600">Welcome to Pokédex</h1>
       <p class="text-gray-500">The digital encyclopedia created by Professor Oak is an invaluable tool to Trainers in the Pokémon world.</p>
+      <BaseButton
+        class="btn btn-normal"
+        @click="handleGetStared">
+        Get started
+      </BaseButton>
     </div>
   </section>
 </template>
 
 <script>
+import BaseButton from '@/components/base-ui/BaseButton.vue'
+
 export default {
-  name: 'WelcomeView'
+  name: 'WelcomeView',
+  components: { BaseButton },
+  methods: {
+    handleGetStared () {
+      this.$router.push({ name: 'pokemon-list-all' })
+    }
+  }
 }
 </script>
 
