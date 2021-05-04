@@ -1,0 +1,22 @@
+@import './_variables.scss';
+@import './_fonts.scss';
+@import './_helpers.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.625rem; // 26px / 16px
+}
+
+p {
+  font-weight: 400;
+  font-size: 1.125rem; // 18px / 16px
+  line-height: 150%;
+}
