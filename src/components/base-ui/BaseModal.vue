@@ -42,12 +42,14 @@ export default {
   flex-direction: column;
   align-items: center;
   z-index: 200;
+  overflow: auto;
 }
 
 .Modal-container {
   position: relative;
   top: 10rem;
   background-color: #ffffff;
+  border-radius: 5px;
   // padding: 1rem;
   width: 315px;
 }
