@@ -1,0 +1,89 @@
+.spinner {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+
+.levitate {
+  transform: translate3d(0, -5%, 0);
+  animation: levitate 1s ease-in-out infinite alternate;
+}
+
+.bounceIn {
+  // Source: https://animate.style/
+  animation-duration: .75s;
+  animation-duration: calc(var(--animate-duration)*0.75);
+  animation-name: bounceIn
+}
+
+.bounceOut {
+  // Source: https://animate.style/
+  animation-duration: .75s;
+  animation-duration: calc(var(--animate-duration)*0.75);
+  animation-name: bounceOut
+}
+
+@keyframes levitate {
+  100% {
+    transform: translate3d(0, -2%, 0);
+  }
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes bounceIn {
+  0%,20%,40%,60%,80%,to {
+      animation-timing-function: cubic-bezier(.215,.61,.355,1)
+  }
+
+  0% {
+      opacity: 0;
+      transform: scale3d(.3,.3,.3)
+  }
+
+  20% {
+      transform: scale3d(1.1,1.1,1.1)
+  }
+
+  40% {
+      transform: scale3d(.9,.9,.9)
+  }
+
+  60% {
+      opacity: 1;
+      transform: scale3d(1.03,1.03,1.03)
+  }
+
+  80% {
+      transform: scale3d(.97,.97,.97)
+  }
+
+  to {
+      opacity: 1;
+      transform: scaleX(1)
+  }
+}
+
+@keyframes bounceOut {
+  20% {
+      transform: scale3d(.9,.9,.9)
+  }
+
+  50%,55% {
+      opacity: 1;
+      transform: scale3d(1.1,1.1,1.1)
+  }
+
+  to {
+      opacity: 0;
+      transform: scale3d(.3,.3,.3)
+  }
+}

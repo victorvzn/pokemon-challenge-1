@@ -1,9 +1,15 @@
 @import './_variables.scss';
 @import './_fonts.scss';
 @import './_helpers.scss';
+@import './_animations.scss';
+@import './_responsive.scss';
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
