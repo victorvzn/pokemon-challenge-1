@@ -1,14 +1,31 @@
 <template>
-  <div class="Modal">
-    <div class="container">
-      <slot />
+  <Portal selector="#portal-target">
+    <div
+      class="Modal"
+      @click.self="onClose"
+      @keydown.esc="onClose"
+      tabindex="0">
+      <div class="Modal-container">
+        <button class="Modal-close-button" @click="onClose">
+          <slot name="closeButton"></slot>
+        </button>
+        <slot />
+      </div>
     </div>
-  </div>
+  </Portal>
 </template>
 
 <script>
+import { Portal } from '@linusborg/vue-simple-portal'
+
 export default {
-  name: 'BaseModal'
+  name: 'BaseModal',
+  components: { Portal },
+  methods: {
+    onClose () {
+      this.$emit('onClose')
+    }
+  }
 }
 </script>
 
@@ -19,27 +36,29 @@ export default {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 200;
 }
 
-.Modal__container {
+.Modal-container {
   position: relative;
   top: 10rem;
   background-color: #ffffff;
-  padding: 1rem;
-  width: 400px;
+  // padding: 1rem;
+  width: 315px;
 }
 
-.Modal__close-button {
+.Modal-close-button {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 15px;
+  right: 15px;
   border: 0;
-  background-color: #F5F5F5;
-  padding: 0.5rem 1rem;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
 }
 </style>
