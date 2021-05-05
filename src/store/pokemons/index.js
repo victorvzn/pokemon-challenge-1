@@ -4,7 +4,9 @@ import getters from './getters'
 
 const state = {
   isLoading: false,
-  pokemonData: null
+  pokemonsData: null,
+  isLoadingDetail: false,
+  pokemonDataSelected: null
 }
 
 const pokemons = {

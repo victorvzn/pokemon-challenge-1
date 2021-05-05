@@ -17,7 +17,8 @@
 
     <PokemonList
       v-if="!isLoading || pokemonsFiltered"
-      :data="pokemonsFiltered" />
+      :data="pokemonsFiltered"
+      :showButtonBackTop="false" />
 
     <PokemonListBottomBar v-if="!isLoading" />
   </div>
@@ -72,5 +73,7 @@ export default {
 <style lang="scss" scoped>
   .wrapper-list-all {
     margin-top: 130px;
+    margin-bottom: 130px;
+    z-index: 100;
   }
 </style>

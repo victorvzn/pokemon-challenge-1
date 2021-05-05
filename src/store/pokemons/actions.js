@@ -9,9 +9,20 @@ export default {
       .then(sleeper(500))
       .then(response => {
         if (response && response.status === 200) {
-          commit('SET_POKEMON_DATA', response.data)
+          commit('SET_POKEMONS_DATA', response.data)
         }
         commit('SET_ISLOADING', false)
+      })
+  },
+  getPokemonByName ({ commit }, payload) {
+    commit('SET_ISLOADING_DETAIL', true)
+    return pokemons.getByName(payload)
+      .then(sleeper(500))
+      .then(response => {
+        if (response && response.status === 200) {
+          commit('SET_POKEMON_DATA', response.data)
+        }
+        commit('SET_ISLOADING_DETAIL', false)
       })
   }
 }

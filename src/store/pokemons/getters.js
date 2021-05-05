@@ -3,18 +3,22 @@ export default {
     return state.isLoading
   },
 
+  isLoadingDetail (state) {
+    return state.isLoadingDetail
+  },
+
   hasPokemons (state) {
-    if (state.pokemonData) {
-      return state.pokemonData.length > 0
+    if (state.pokemonsData) {
+      return state.pokemonsData.length > 0
     }
     return false
   },
 
   getPokemons: (state) => (keyword = '') => {
-    let tempPokemons = state.pokemonData
+    let tempPokemons = state.pokemonsData
     if (keyword) {
       tempPokemons = tempPokemons.filter(pokemon => {
-        return pokemon.nameWithoutHyphens
+        return pokemon.name
           .toLowerCase()
           .includes(keyword.toLowerCase())
       })
@@ -22,15 +26,19 @@ export default {
     return tempPokemons || []
   },
 
+  getPokemon (state) {
+    return state.pokemonDataSelected
+  },
+
   getPokemonsFavorites: (state) => (keyword = '') => {
-    let tempPokemons = state.pokemonData
+    let tempPokemons = state.pokemonsData
 
     if (tempPokemons) {
       tempPokemons = tempPokemons.filter(pokemon => pokemon.isFavorite)
 
       if (keyword) {
         tempPokemons = tempPokemons.filter(pokemon => {
-          return pokemon.nameWithoutHyphens
+          return pokemon.name
             .toLowerCase()
             .includes(keyword.toLowerCase())
         })

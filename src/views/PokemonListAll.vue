@@ -17,7 +17,8 @@
 
     <PokemonList
       v-if="!isLoading && pokemonsFiltered"
-      :data="pokemonsFiltered" />
+      :data="pokemonsFiltered"
+      :showButtonBackTop="hasPokemonsMoreThan20" />
 
     <PokemonListBottomBar v-if="!isLoading" />
   </div>
@@ -55,6 +56,12 @@ export default {
     pokemonsFiltered () {
       return this.getPokemons(this.keyword)
     },
+    hasPokemonsMoreThan20 () {
+      if (this.pokemonsFiltered) {
+        return this.pokemonsFiltered.length > 20
+      }
+      return false
+    },
     hasPokemonsFiltered () {
       if (this.pokemonsFiltered) {
         return this.pokemonsFiltered.length > 0
@@ -73,5 +80,6 @@ export default {
 <style lang="scss" scoped>
   .wrapper-list-all {
     margin-top: 130px;
+    margin-bottom: 110px;
   }
 </style>
