@@ -1,13 +1,15 @@
 <template>
   <section class="Welcome text-center">
-    <IconPikachu />
-    <h1 class="text-gray-600">Welcome to Pokédex</h1>
-    <p class="text-gray-500">The digital encyclopedia created by Professor Oak is an invaluable tool to Trainers in the Pokémon world.</p>
-    <BaseButton
-      class="btn btn-normal"
-      @click="handleGetStared">
-      Get started
-    </BaseButton>
+    <div class="container">
+      <IconPikachu />
+      <h1 class="text-gray-600">Welcome to Pokédex</h1>
+      <p class="text-gray-500">The digital encyclopedia created by Professor Oak is an invaluable tool to Trainers in the Pokémon world.</p>
+      <BaseButton
+        class="btn btn-normal"
+        @click="handleGetStared">
+        Get started
+      </BaseButton>
+    </div>
   </section>
 </template>
 
@@ -29,7 +31,7 @@ export default {
   .Welcome {
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
   }
 
   .Welcome svg {
@@ -44,5 +46,19 @@ export default {
   .Welcome p {
     padding: 0 30px;
     margin-bottom: 50px;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 570px;
+  }
+
+  @media (min-width: 576px) {
+    .Welcome p {
+      padding-left: 2px;
+      padding-right: 2px;
+    }
   }
 </style>
