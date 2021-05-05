@@ -1,30 +1,28 @@
 <template>
   <div class="wrapper-list-bottom-bar">
-    <BaseButton
-      class="btn btn-normal"
-      @click="onPokemonList"
-      :isDisabled="$route.name !== 'pokemon-list-all'">
-      <IconList />
-      <span>All</span>
-    </BaseButton>
+    <div class="container">
+      <BaseButton
+        class="btn btn-normal"
+        @click="onPokemonList"
+        :isDisabled="$route.name !== 'pokemon-list-all'">
+        <IconList />
+        <span>All</span>
+      </BaseButton>
 
-    <BaseButton
-      class="btn btn-normal"
-      @click="onPokemonFavoriteList"
-      :isDisabled="$route.name !== 'pokemon-list-favorites'">
-      <IconStarWhite />
-      <span>Favorites</span>
-    </BaseButton>
+      <BaseButton
+        class="btn btn-normal"
+        @click="onPokemonFavoriteList"
+        :isDisabled="$route.name !== 'pokemon-list-favorites'">
+        <IconStarWhite />
+        <span>Favorites</span>
+      </BaseButton>
+    </div>
   </div>
 </template>
 
 <script>
-import IconList from '@/components/icons/IconList.vue'
-import IconStarWhite from '@/components/icons/IconStarWhite.vue'
-
 export default {
   name: 'PokemonListBottomBar',
-  components: { IconList, IconStarWhite },
   methods: {
     onPokemonList () {
       this.$router.push({ name: 'pokemon-list-all' }).catch(() => {})
@@ -46,8 +44,23 @@ export default {
     background-color: var(--white);
     box-shadow: 0px -5px 4px rgba(0, 0, 0, 0.05);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
+  }
+  .container {
+    width: 570px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 
+      // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) {
+    .container  {
+      justify-content: space-between;
+    }
+    .btn {
+      width: 275px;
+    }
   }
 </style>
