@@ -1,4 +1,8 @@
 export default {
+  isDataLoaded (state) {
+    return state.dataLoaded
+  },
+
   isLoading (state) {
     return state.isLoading
   },

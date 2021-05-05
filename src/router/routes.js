@@ -11,8 +11,8 @@ const routes = [
     name: 'pokemon-list-all',
     component: () => import(/* webpackChunkName: "pokemon-list-all" */ '../views/PokemonListAll.vue'),
     beforeEnter (to, from, next) {
-      const hasPokemons = store.getters['pokemons/hasPokemons']
-      if (!hasPokemons) {
+      const isDataLoaded = store.getters['pokemons/isDataLoaded']
+      if (!isDataLoaded) {
         store.dispatch('pokemons/getPokemons')
       }
       next()

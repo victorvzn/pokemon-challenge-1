@@ -1,6 +1,9 @@
 import { removeHyphens, arrayWithCommas } from '../helpers'
 
 export default {
+  SET_DATA_LOADED (state, payload) {
+    state.dataLoaded = payload
+  },
   SET_ISLOADING (state, payload) {
     state.isLoading = payload
   },

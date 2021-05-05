@@ -9,6 +9,7 @@ export default {
       .then(sleeper(400))
       .then(response => {
         if (response && response.status === 200) {
+          commit('SET_DATA_LOADED', true)
           commit('SET_POKEMONS_DATA', response.data)
         }
         commit('SET_ISLOADING', false)

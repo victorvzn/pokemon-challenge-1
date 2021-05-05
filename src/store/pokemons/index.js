@@ -4,6 +4,7 @@ import getters from './getters'
 
 const state = {
   isLoading: false,
+  dataLoaded: false,
   pokemonsData: null,
   isLoadingDetail: false,
   pokemonDataSelected: null
