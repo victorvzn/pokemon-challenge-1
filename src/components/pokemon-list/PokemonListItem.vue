@@ -1,7 +1,7 @@
 <template>
-  <div class="PokemonListItem" @click="openModal(data.name)">
+  <div class="PokemonListItem" @click.self="openModal(data.name)">
     <span>{{ data.nameWithoutHyphens }}</span>
-    <BaseButtonIcon @click.exact="onToggleFavorite(data.name)">
+    <BaseButtonIcon @click="onToggleFavorite(data.name)">
       <IconStarGold v-if="data.isFavorite" />
       <IconStarSilver v-else />
     </BaseButtonIcon>
@@ -59,9 +59,9 @@ export default {
     transition: background .2s ease-in;
   }
 
-  .PokemonListItem:hover {
-    background-color: var(--gray-200);
-  }
+  // .PokemonListItem:hover {
+  //   background-color: var(--gray-200);
+  // }
 
   .PokemonListItem span {
     font-family: inherit;
