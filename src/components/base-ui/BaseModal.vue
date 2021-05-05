@@ -61,4 +61,11 @@ export default {
   margin: 0;
   padding: 0;
 }
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .Modal-container {
+    width: 570px;
+  }
+}
 </style>
