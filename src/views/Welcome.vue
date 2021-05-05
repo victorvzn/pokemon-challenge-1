@@ -1,43 +1,47 @@
 <template>
-  <section class="welcome text-center">
-    <div class="">
-      <img src="../assets/pikachu.svg" alt="Pikachu" />
-      <h1 class="text-gray-600">Welcome to Pokédex</h1>
-      <p class="text-gray-500">The digital encyclopedia created by Professor Oak is an invaluable tool to Trainers in the Pokémon world.</p>
-      <BaseButton
-        class="btn btn-normal"
-        @click="handleGetStared">
-        Get started
-      </BaseButton>
-    </div>
+  <section class="Welcome text-center">
+    <IconPikachu />
+    <h1 class="text-gray-600">Welcome to Pokédex</h1>
+    <p class="text-gray-500">The digital encyclopedia created by Professor Oak is an invaluable tool to Trainers in the Pokémon world.</p>
+    <BaseButton
+      class="btn btn-normal"
+      @click="handleGetStared">
+      Get started
+    </BaseButton>
   </section>
 </template>
 
 <script>
-import BaseButton from '@/components/base-ui/BaseButton.vue'
+import IconPikachu from '@/components/icons/IconPikachu.vue'
 
 export default {
   name: 'WelcomeView',
-  components: { BaseButton },
+  components: { IconPikachu },
   methods: {
     handleGetStared () {
-      this.$router.push({ name: 'pokemon-list-all' })
+      this.$router.push({ name: 'pokemon-list-all' }).catch(() => {})
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .welcome img {
+  .Welcome {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .Welcome svg {
     margin-top: 70px;
     margin-bottom: 60px;
   }
 
-  .welcome h1 {
+  .Welcome h1 {
     margin-bottom: 30px;
   }
 
-  .welcome p {
+  .Welcome p {
     padding: 0 30px;
     margin-bottom: 50px;
   }
