@@ -4,3 +4,11 @@ export function sleeper (ms) {
     return new Promise(resolve => setTimeout(() => resolve(x), ms))
   }
 }
+
+export function removeHyphens (text) {
+  return (text.replace(/-/g, ' '))
+}
+
+export function arrayWithCommas (data) {
+  return data.join(', ')
+}
