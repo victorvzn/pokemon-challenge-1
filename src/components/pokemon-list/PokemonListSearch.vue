@@ -12,11 +12,8 @@
 </template>
 
 <script>
-import IconSearch from '@/components/icons/IconSearch.vue'
-
 export default {
   name: 'PokemonListSearch',
-  components: { IconSearch },
   methods: {
     onSearch (e) {
       this.$emit('onSearch', e.target.value)
@@ -33,5 +30,15 @@ export default {
     top: 0;
     left: 0;
     right: 0;
+  }
+
+    // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) {
+    .wrapper-search  {
+      margin: 0 auto;
+      padding-left: 0;
+      padding-right: 0;
+      width: 570px;
+    }
   }
 </style>
