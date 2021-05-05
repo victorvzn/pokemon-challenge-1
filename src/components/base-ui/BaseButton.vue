@@ -25,14 +25,24 @@ export default {
     border: 0;
     padding: 11px 20px;
     font-family: inherit;
-    font-size: 1.125rem;
+    font-size: 1.125rem; // 18px / 16px
     font-weight: 700;
     color: #fff;
     border-radius: 60px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 150px;
   }
 
   .btn-normal {
     background-color: var(--red-100);
+  }
+
+  .btn-normal span {
+    padding-left: 10px;
   }
 
   .btn-disabled {
