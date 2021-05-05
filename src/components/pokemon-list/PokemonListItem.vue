@@ -1,25 +1,25 @@
 <template>
-  <div class="PokemonListItem" @click.self="openModal(data.name)">
-    <span>{{ data.nameWithoutHyphens }}</span>
-    <BaseButtonIcon @click="onToggleFavorite(data.name)">
-      <IconStarGold v-if="data.isFavorite" />
-      <IconStarSilver v-else />
-    </BaseButtonIcon>
+  <div class="PokemonListItem" @click.self="openModal(data.slug)">
+    <span @click.self="openModal(data.slug)">{{ data.name }}</span>
 
-    <PokemonListItemModal v-if="isModalOpen" />
+    <PokemonButtonFavorite :data="data" />
+
+    <PokemonListItemModal
+      v-if="isModalOpen"
+      @onClose="closeModal"
+      :data="data" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 
-import IconStarSilver from '@/components/icons/IconStarSilver.vue'
-import IconStarGold from '@/components/icons/IconStarGold.vue'
 import PokemonListItemModal from '@/components/pokemon-list/PokemonListItemModal.vue'
+import PokemonButtonFavorite from '@/components/shared/PokemonButtonFavorite.vue'
 
 export default {
   name: 'PokemonListItem',
-  components: { IconStarSilver, IconStarGold, PokemonListItemModal },
+  components: { PokemonListItemModal, PokemonButtonFavorite },
   data () {
     return {
       isModalOpen: false
@@ -36,11 +36,15 @@ export default {
     })
   },
   methods: {
-    onToggleFavorite (name) {
-      this.$store.commit('pokemons/SET_TOGGLE_FAVORITE', { name })
+    toggleModal (name) {
+      this.isModalOpen = !this.isModalOpen
     },
     openModal (name) {
-      this.isModalOpen = !this.isModalOpen
+      this.toggleModal()
+      this.$store.dispatch('pokemons/getPokemonByName', name)
+    },
+    closeModal (name) {
+      this.toggleModal()
     }
   }
 }
