@@ -7,16 +7,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "welcome" */ '../views/Welcome.vue')
   },
   {
-    path: '/loading',
-    name: 'loading',
-    component: () => import(/* webpackChunkName: "loading" */ '../views/Loading.vue')
-  },
-  {
     path: '/list',
     name: 'pokemon-list-all',
     component: () => import(/* webpackChunkName: "pokemon-list-all" */ '../views/PokemonListAll.vue'),
     beforeEnter (to, from, next) {
-      store.dispatch('pokemons/getPokemons')
+      const hasPokemons = store.getters['pokemons/hasPokemons']
+      if (!hasPokemons) {
+        store.dispatch('pokemons/getPokemons')
+      }
       next()
     }
   },
