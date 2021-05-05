@@ -53,6 +53,7 @@ export default {
     align-items: center;
     flex-direction: column;
     width: 570px;
+    margin-bottom: 70px;
   }
 
   @media (min-width: 576px) {
