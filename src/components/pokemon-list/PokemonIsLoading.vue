@@ -1,15 +1,12 @@
 <template>
   <div class="PokemonIsLoading">
-    <IconPokeball />
+    <IconPokeball class="spinner" />
   </div>
 </template>
 
 <script>
-import IconPokeball from '@/components/icons/IconPokeball.vue'
-
 export default {
-  name: 'PokemonIsLoading',
-  components: { IconPokeball }
+  name: 'PokemonIsLoading'
 }
 </script>
 
