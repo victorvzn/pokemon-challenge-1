@@ -24,7 +24,7 @@ export default {
     }),
     messageToCopy () {
       const pkm = this.pokemonSelected
-      return `Pokemon: ${pkm.name}, ${pkm.weight}, ${pkm.height}, ${pkm.types}, ${pkm.image}`
+      return `Pokémon: ${pkm.name}, ${pkm.weight}, ${pkm.height}, ${pkm.types}`
     }
   },
   methods: {
