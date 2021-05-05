@@ -52,6 +52,7 @@ export default {
   border-radius: 5px;
   // padding: 1rem;
   width: 315px;
+  overflow: hidden;
 }
 
 .Modal-close-button {
