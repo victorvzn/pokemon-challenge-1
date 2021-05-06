@@ -1,5 +1,7 @@
 <template>
-  <BaseButtonIcon @click="onToggleFavorite(data.slug)">
+  <BaseButtonIcon
+    @click="onToggleFavorite(data.slug)"
+    :class="{ 'active': data.isFavorite }">
     <IconStarGold :class="{ 'bounceIn': data.isFavorite }" v-if="data.isFavorite" />
     <IconStarSilver v-else />
   </BaseButtonIcon>
