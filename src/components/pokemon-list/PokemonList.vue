@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper-list">
     <PokemonListItem
-      v-for="(item, index) in data"
-      :key="index"
+      v-for="item in data"
+      :key="item.slug"
       :data="item"
     />
     <div class="TheEnd text-center" v-show="showButtonBackTop">

@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 import PokemonListItemModal from '@/components/pokemon-list/PokemonListItemModal.vue'
 import PokemonButtonFavorite from '@/components/shared/PokemonButtonFavorite.vue'
 
@@ -29,11 +27,6 @@ export default {
     data: {
       type: Object
     }
-  },
-  computed: {
-    ...mapGetters({
-      getPokemons: 'pokemons/getPokemons'
-    })
   },
   methods: {
     toggleModal (name) {
