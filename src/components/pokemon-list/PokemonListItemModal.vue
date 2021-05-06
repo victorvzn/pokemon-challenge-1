@@ -1,7 +1,7 @@
 <template>
   <BaseModal @onClose="onClose">
     <template v-slot:closeButton>
-      <IconTimes />
+      <IconTimes class="PokemonListItemModal-times" />
     </template>
     <div class="PokemonListItemModal">
       <section class="PokemonListItemModal-bg">
@@ -10,7 +10,6 @@
           v-if="!isLoadingDetail"
           width="180"
           height="180"
-          loading="lazy"
           :alt="pokemonSelected.name"
           v-lazy="pokemonSelected.image" />
       </section>
@@ -63,6 +62,9 @@ export default {
 </script>
 
 <style scoped>
+  .PokemonListItemModal-times {
+    cursor: pointer;
+  }
   .PokemonListItemModal-bg {
     background-image: url(/images/bg.svg);
     background-size: cover;
